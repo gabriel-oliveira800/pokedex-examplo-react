@@ -11,9 +11,11 @@ import './style.css';
 function Header() {
     const [hasOpenFilter, setHasOptionsFilter] = useState(false);
 
+
     return (
         <header>
             <img src={Logo} alt='Logo' />
+
             <div className='input-box'>
                 <IconContext.Provider value={{ className: "input-box-logo" }}>
                     <ImSearch />
@@ -30,9 +32,10 @@ function Header() {
                     </IconContext.Provider>
                 </div>
             </div>
+
             <div className={
-                hasOpenFilter ? 'filter' : 'filter-closed '}
-            >
+                hasOpenFilter ? 'filter' : 'filter-closed'
+            }>
                 <span>Nome</span>
                 <span>Abilidade</span>
                 <span>Cor</span>
