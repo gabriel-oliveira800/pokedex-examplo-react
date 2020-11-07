@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { IconContext } from 'react-icons';
+
+import { BiDownArrow } from 'react-icons/bi';
+import { AiOutlineClose } from 'react-icons/ai';
 
 import './style.css';
 
-export default function InfoPokemon() {
+export default function InfoPokemon({ height, weight, stats }) {
+    const [extendStats, setExtendStats] = useState(false);
 
-    function getNumItems(length) {
+    function getPorceNumberForce(base) {
         let arraItem = [];
+        const porcentForce = parseInt(base / 10);
 
-        for (let index = 0; index < length; index++) {
+        for (let index = 0; index < porcentForce; index++) {
             arraItem.push(index);
         }
 
@@ -15,63 +21,36 @@ export default function InfoPokemon() {
     }
 
     return (
-        <div className="wrapper-info">
-            <div className="info-header">
-                <span>Height:  {234 / 10}kg</span>
-                <span>Weight:  {44.5 / 10}m</span>
-            </div>
+        <>
+            <IconContext.Provider value={{
+                className: !extendStats ? "more-icon" : "more-icon-closed",
+                attr: { onClick: () => setExtendStats(!extendStats) }
+            }}>
+                {!extendStats ? <BiDownArrow /> : <AiOutlineClose />}
+            </IconContext.Provider>
 
-            <div className="info-stats">
-                <span>HP</span>
-                <ul>
-                    {getNumItems(3).map(_ => <li></li>)}
-                </ul>
-            </div>
+            <br></br>
 
-            <div className="info-stats">
-                <span>Attack</span>
-                <ul>
-                    {getNumItems(5).map(_ => <li></li>)}
-                </ul>
-            </div>
+            {
+                extendStats ?
+                    <div className="wrapper-info">
+                        <div className="info-header">
+                            <span>Height:  {height / 10}kg</span>
+                            <span>Weight:  {weight / 10}m</span>
+                        </div>
 
-            <div className="info-stats">
-                <span>Defense</span>
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-
-            <div className="info-stats">
-                <span>Special Attack</span>
-                <ul>
-                    {getNumItems(15).map(_ => <li></li>)}
-                </ul>
-            </div>
-
-            <div className="info-stats">
-                <span>Special Attack</span>
-                <ul>
-                    {getNumItems(4).map(_ => <li></li>)}
-                </ul>
-            </div>
-
-            <div className="info-stats">
-                <span>Special Defense</span>
-                <ul>
-                    {getNumItems(2).map(_ => <li></li>)}
-                </ul>
-            </div>
-
-            <div className="info-stats">
-                <span>Speed</span>
-                <ul>
-                    {getNumItems(6).map(_ => <li></li>)}
-                </ul>
-            </div>
-        </div>
+                        {stats.map(statItem => {
+                            return <div key={statItem.stat.url} className="info-stats">
+                                <span>{statItem.stat.name}</span>
+                                <ul>
+                                    {getPorceNumberForce(statItem.base_stat).map(qnt => <li key={height * qnt}></li>)
+                                    }
+                                </ul>
+                            </div>
+                        })}
+                    </div>
+                    : null
+            }
+        </>
     );
 }

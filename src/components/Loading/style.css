@@ -1,0 +1,38 @@
+.wrapper-loading {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    background-color: var(--text-color);
+}
+
+.loading-pokemos {
+    height: 180px;
+    text-align: center;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loading-pokemos h1 {
+    padding-top: 28px;
+    font-weight: bold;
+    font-size: 28px;
+    color: var(--grey);
+}
+
+.loading-pokemos img {
+    animation: rotateLoading 5s linear infinite;
+    cursor: pointer;
+}
+
+@keyframes rotateLoading {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}

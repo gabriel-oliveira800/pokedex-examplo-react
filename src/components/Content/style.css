@@ -87,49 +87,23 @@ main .wrapper-content {
     color: #313131;
 }
 
-
-.content--box .more-icon {
-    height: 48px;
-    width: 48px;
-
-    padding: 8px;
-
-
-    fill: var(--primary-color);
-    border-radius: 50%;
-    cursor: pointer;
-
-    animation: moreTo 1s infinite;
-    transition: all 700ms;
-}
-
-.content--box .more-icon-closed {
-    height: 48px;
-    width: 48px;
-
-    padding: 8px;
-
-
-    fill: var(--primary-color); 
-    border-radius: 50%;
-    cursor: pointer;
-
-    animation: none;
-    transition: all 700ms;
-}
-
-.content--box .more-icon:hover, .more-icon-closed:hover {
+.content--box .poke-info ul {
+    padding-top: 12px;
     
-    fill: var(--grey);
-    background-color:  var(--primary-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.content--box .poke-info li {
+    list-style: none;
+    padding-right: 12px;
+}
 
-@keyframes moreTo {
-    from {
-       transform: translateY(-28px);
+@media(min-width: 820px){
+    .content--box .poke-num {
+        left:  0;
+        border-radius: 8px 0 8px 0;
     }
-    to { 
-        transform: translateY(0px);
-     }
 }

@@ -40,7 +40,6 @@
 }
 
 .wrapper-info .info-stats span {
-    /* arrumar no media query */
     max-width: 80px;
 
     color: var(--text-color);
@@ -68,4 +67,51 @@
     border-radius: 24px;
 
     margin:2px;
+}
+
+
+.content--box .more-icon {
+    height: 48px;
+    width: 48px;
+
+    padding: 8px;
+
+
+    fill: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+
+    animation: moreTo 1s infinite;
+    transition: all 700ms;
+}
+
+.content--box .more-icon-closed {
+    height: 48px;
+    width: 48px;
+
+    padding: 8px;
+
+
+    fill: var(--primary-color); 
+    border-radius: 50%;
+    cursor: pointer;
+
+    animation: none;
+    transition: all 700ms;
+}
+
+.content--box .more-icon:hover, .more-icon-closed:hover {
+    
+    fill: var(--grey);
+    background-color:  var(--primary-color);
+}
+
+
+@keyframes moreTo {
+    from {
+       transform: translateY(-28px);
+    }
+    to { 
+        transform: translateY(0px);
+     }
 }

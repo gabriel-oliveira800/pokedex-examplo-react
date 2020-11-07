@@ -1,4 +1,4 @@
-const pokemons_number = 20;
+const pokemons_number = 220;
 
 // const colors = {
 //     fire: '#FDDFDF',
@@ -30,8 +30,8 @@ async function getPokemonApiById(id) {
 
 
 export default async function getPokemons(id) {
-    
-    var promise = new Promise(async function (resolve, reject) {
+
+    var promise = new Promise(async function(resolve, reject) {
         let pokemosAll = [];
 
         for (let i = 1; i <= pokemons_number; i++) {
