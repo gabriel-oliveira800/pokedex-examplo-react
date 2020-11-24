@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Header from './components/Header';
 import Content from './components/Content';
+import Footer from './components/Footer';
 
 import ApiPoke from './api';
 
@@ -26,6 +27,7 @@ function App() {
     <div className="App">
       <Header />
       <Content />
+      <Footer/>
     </div>
   );
 }

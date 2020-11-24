@@ -5,7 +5,7 @@ const INITIAL_STATE = {
     data: [],
     filtedData: [],
     searchText: null,
-    numberOfPokemos: 40,
+    numberOfPokemos: 42,
 };
 
 
