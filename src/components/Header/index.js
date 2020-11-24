@@ -10,13 +10,10 @@ import './style.css';
 
 function Header() {
     const dispatch = useDispatch();
-
-    const filtedData = useSelector(state => state.filtedData);
     const numberOfPokes = useSelector(state => state.numberOfPokemos);
 
     function onChangeText(event) {
         dispatch({ type: 'CHANGE_SEARCH', searchText: event.target.value });
-        console.log(filtedData);
     }
 
     return (

@@ -8,7 +8,11 @@ import './style.css';
 
 
 function Content() {
-    const pokemos = useSelector(state => state.data);
+    const data = useSelector(state => state.data);
+    const searchText = useSelector(state => state.searchText);
+    const filtedPokemos = useSelector(state => state.filtedData);
+    
+    const pokemos = searchText == null ? data : filtedPokemos;
 
     return (
         <>
