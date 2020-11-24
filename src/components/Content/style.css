@@ -85,6 +85,12 @@ main .wrapper-content {
 
 .content--box .poke-info h1 {
     color: #313131;
+    text-align: center;
+    letter-spacing: 2.2px;
+}
+
+.content--box .poke-info h1::first-letter{
+    text-transform: uppercase;
 }
 
 .content--box .poke-info ul {

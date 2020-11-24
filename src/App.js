@@ -1,35 +1,33 @@
-import React, { useEffect, useState } from 'react';
-
-import ApiPokemons from './api';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Header from './components/Header';
 import Content from './components/Content';
-import Loading from './components/Loading'
+
+import ApiPoke from './api';
 
 import './style.css';
 
 function App() {
-    const [AllPokemos, setAllPokemos] = useState([]);
 
-    useEffect(() => {
-        const handlePokemons = async() => {
-            const pokes = await ApiPokemons();
-            setAllPokemos(pokes);
-        }
+  const dispatch = useDispatch();
+  const numberOfPokes = useSelector(state => state.numberOfPokemos);
 
-        handlePokemons();
-    }, []);
-
-    return ( <
-        div className = "App" >
-        <
-        Header / > {
-            AllPokemos.length <= 0 ? < Loading / > : < Content pokemos = { AllPokemos }
-            />}
-
-            { /* <Footer/> */ } <
-            /div>
-        );
+  useEffect(() => {
+    const handlePokemos = async () => {
+      var data = await ApiPoke(numberOfPokes);
+      dispatch({ type: 'GET_POKEMOS', data });
     }
 
-    export default App;
+    handlePokemos();
+  });
+
+  return (
+    <div className="App">
+      <Header />
+      <Content />
+    </div>
+  );
+}
+
+export default App;

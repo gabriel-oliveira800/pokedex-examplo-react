@@ -1,39 +1,51 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-import InfoPokemon from '../InfoPokemon'
+import Loading from '../Loading';
+import InfoPokemon from '../InfoPokemon';
 
 import './style.css';
 
-export default function Content({ pokemos }) {
+
+function Content() {
+    const pokemos = useSelector(state => state.data);
+
     return (
-        <main>
-            <div className="wrapper-content">
-                {pokemos.map(item =>
-                    <div key={item.id} className="content--box" >
-                        <div className="poke-num">#{item.id}</div>
-                        <img src={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png`}
-                            alt={item.name}
-                        />
+        <>
+            { pokemos.length <= 0 ?
+                <Loading /> :
+                <main>
+                    <div className="wrapper-content">
+                        {pokemos.map(item =>
+                            <div key={item.id} className="content--box" >
+                                <div className="poke-num">#{item.id}</div>
+                                <img src={`https://pokeres.bastionbot.org/images/pokemon/${item.id}.png`}
+                                    alt={item.name}
+                                />
 
-                        <div className="poke-info">
-                            <h1>{item.name}</h1>
+                                <div className="poke-info">
+                                    <h1>{item.name}</h1>
 
-                            <ul>
-                                {item.types.map(typesItem => {
-                                    return <li key={typesItem.slot}>{typesItem.type.name}</li>
-                                })}
-                            </ul>
+                                    <ul>
+                                        {item.types.map(typesItem => {
+                                            return <li key={typesItem.slot}>{typesItem.type.name}</li>
+                                        })}
+                                    </ul>
 
-                        </div>
+                                </div>
 
-                        <InfoPokemon
-                            height={item.height}
-                            weight={item.weight}
-                            stats={item.stats}
-                        />
+                                <InfoPokemon
+                                    height={item.height}
+                                    weight={item.weight}
+                                    stats={item.stats}
+                                />
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
-        </main>
+                </main>
+            }
+        </>
     );
 }
+
+export default Content;
