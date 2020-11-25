@@ -103,26 +103,11 @@ header img {
 
 }
 
-.input-box .input-filter {
-    height: 100%;
-    width: 48px;
-
-    border-radius: 0 4px 4px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.input-box .input-filter:hover {
-    background-color: rgba(0, 0, 0, 0.12);
-}
-
 .number-pokes {
-    width: 80px;
-
+    min-width: 80px;
     text-align: center;
     margin-left: 12px;
+    cursor: pointer;
 }
 
 .number-pokes span {
@@ -133,7 +118,7 @@ header img {
 }
 
 .number-pokes p {
-    font-size: 16px;
+    font-size: 14px;
     color: #f9f9f9;
     font-weight: 500;
 }

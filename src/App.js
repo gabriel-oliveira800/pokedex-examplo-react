@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const handlePokemos = async () => {
-      var data = await ApiPoke(numberOfPokes);
+      var data = await ApiPoke.getPokemons(numberOfPokes);
       dispatch({ type: 'GET_POKEMOS', data });
     }
 
