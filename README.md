@@ -10,19 +10,15 @@
 
 ![video](/screenshoot/05.gif)
 
- <p float="left">
-  <img src="screenshoot/02.png" width="100%">
-</p>
-
-
-
 <table>
   <theade>
     <th>01</th>
     <th>02</th>
     <th>03</th>
+    <th>04</th>
   </theade>
   <tbody>
+    <td><img src="screenshoot/02.png" width="100%"></td>
     <td><img src="screenshoot/03.png" width="100%"></td>
     <td><img src="screenshoot/04.png" width="100%"></td>
     <td><img src="screenshoot/01.png" width="100%"></td>
